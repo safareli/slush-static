@@ -1,0 +1,39 @@
+{
+    "name": "slush-static",
+    "description": "generate static web page project with cofeescript+lint+uglify, stylus+nib ,imagemin, jade and server+livereload",
+    "version": "0.0.1",
+    "homepage": "https://github.com/Safareli/slush-static",
+    "author": {
+        "name": "Irakli Safareli",
+        "email": "i.safareli@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Safareli/slush-static.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Safareli/slush-static/issues"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/Safareli/slush-static/blob/master/LICENSE"
+    }],
+    "main": "slushfile.js",
+    "engines": {
+        "node": ">= 0.10.26",
+        "npm": ">=1.4.3"
+    },
+    "scripts": {
+        "test": "echo \"Not have tests\""
+    },
+    "dependencies": {
+        "gulp": "~3.5.6",
+        "gulp-template": "~0.1.1",
+        "gulp-install": "~0.1.1",
+        "gulp-conflict": "~0.1.1",
+        "gulp-rename": "~1.2.0",
+        "underscore.string": "~2.3.3",
+        "inquirer": "~0.4.1"
+    },
+    "keywords": ["slushgenerator"]
+}

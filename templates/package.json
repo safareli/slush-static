@@ -1,0 +1,49 @@
+{
+    "name": "<%= appNameSlug %>",
+    "description": "<%= appDescription %>",
+    "version": "<%= appVersion %>",
+    "homepage": "https://github.com/<%= userName %>/<%= appNameSlug %>",
+    "author": {
+        "name": "<%= authorName %>",
+        "email": "<%= authorEmail %>"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/<%= userName %>/<%= appNameSlug %>.git"
+    },
+    "bugs": {
+        "url": "https://github.com/<%= userName %>/<%= appNameSlug %>/issues"
+    },
+    "licenses": [{
+        "type": "<%= license %>",
+        "url": "https://github.com/<%= userName %>/<%= appNameSlug %>/blob/master/LICENSE"
+    }],
+    "main": "gulpfile.js",
+    "engines": {
+        "node": ">= 0.10.26",
+        "npm": ">=1.4.3"
+    },
+    "keywords": [],
+    "scripts": {
+        "test": "echo \"Not have tests\""
+    },
+    "devDependencies": {
+      "gulp": "~3.6.0",
+      "gulp-jade": "~0.4.2",
+      "gulp-coffee": "~1.4.1",
+      "gulp-util": "~2.2.14",
+      "gulp-stylus": "~0.1.0",
+      "gulp-uglify": "~0.2.1",
+      "gulp-clean": "~0.2.4",
+      "gulp-imagemin": "~0.1.5",
+      "gulp-rename": "~1.2.0",
+      "gulp-concat": "~2.2.0",
+      "gulp-load-plugins": "~0.4.0",
+      "gulp-connect": "~1.1.0",
+      "gulp-notify": "~1.2.5",
+      "gulp-coffeelint": "~0.3.2",
+      "gulp-newer": "~0.3.0",
+      "coffee-script": "~1.7.1"
+    }
+}
+ 
