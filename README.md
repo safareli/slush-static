@@ -1,9 +1,15 @@
-# slush-static [![Build Status](https://secure.travis-ci.org/Safareli/slush-static.png?branch=master)](https://travis-ci.org/Safareli/slush-static) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-static.png)](http://badges.enytc.com/for/npm/slush-static) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Safareli/slush-static/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# slush-static [![Build Status](https://secure.travis-ci.org/Safareli/slush-static.png?branch=master)](https://travis-ci.org/Safareli/slush-static) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-static.png)](http://badges.enytc.com/for/npm/slush-static)
 
-> generate static web page project with cofeescript+lint+uglify, stylus+nib ,imagemin, jade and server+livereload
-
+> generate static web page project using:
+ - CoffeeScript + lint + uglify
+ - Livereload + Server
+ - stylus + nib
+ - imagemin
 
 ## Getting Started
+ 
+
+ 
 
 ### Installation
 
