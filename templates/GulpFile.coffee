@@ -1,4 +1,5 @@
 LOCALS = require("./locals.json")
+{dir, server} = require("./config.json")
 gulp = require("gulp")
 $ = require("gulp-load-plugins")(lazy: false) #plugins
 
@@ -8,57 +9,57 @@ $ = require("gulp-load-plugins")(lazy: false) #plugins
 # kill -9 PID
 
 gulp.task "connect", $.connect.server(
-  host: "0.0.0.0"
-  root: ["dist"]
-  port: 3000
+  host: server.hostname
+  root: [dir.build]
+  port: server.port
   livereload:
-    port: 4000
+    port: server.livereload
 )
 
 gulp.task "jade", ->
-  gulp.src("./source/*.jade")
+  gulp.src(dir.source + "/*.jade")
     .pipe $.jade(locals: LOCALS)
-    .pipe gulp.dest("./dist/")
+    .pipe gulp.dest(dir.build)
     .pipe $.connect.reload()
     .pipe $.notify(message: "Jade task complete")
 
 gulp.task "coffee", ->
-  gulp.src("./source/scripts/**/*.coffee")
+  gulp.src(dir.source + dir.scripts + "**/*.coffee")
     .pipe $.coffeelint()
     .pipe $.coffeelint.reporter()
     .pipe $.coffee(bare: true).on("error", $.util.log)
     .pipe $.concat("main.js")
-    .pipe gulp.dest("./dist/scripts")
+    .pipe gulp.dest(dir.dist + dir.scripts)
     .pipe $.rename(suffix: ".min")
     .pipe $.uglify()
-    .pipe gulp.dest("./dist/scripts")
+    .pipe gulp.dest(dir.dist + dir.scripts)
     .pipe $.connect.reload()
     .pipe $.notify(message: "Scripts task complete")
 
 gulp.task "stylus", ->
-  gulp.src("./source/styles/*.styl")
+  gulp.src(dir.source + dir.styles + "*.styl")
     .pipe $.stylus(
       use: ["nib"]
       import: ["nib"]
     )
-    .pipe gulp.dest("./dist/styles")
+    .pipe gulp.dest(dir.dist + dir.styles)
     .pipe $.connect.reload()
     .pipe $.notify(message: "Styles task complete")
 
 gulp.task "images", ->
-  gulp.src("./source/images/**/*")
-    .pipe $.newer("dist/images")
+  gulp.src(dir.source + dir.images + "**/*")
+    .pipe $.newer(dir.dist + dir.images)
     .pipe $.imagemin(
       optimizationLevel: 3
       progressive: true
       interlaced: true
     )
     .pipe $.connect.reload()
-    .pipe gulp.dest("dist/images")
+    .pipe gulp.dest(dir.dist + dir.images)
     .pipe $.notify(message: "Images task complete")
 
 gulp.task "clean", ->
-  gulp.src("dist/", read: false)
+  gulp.src(dir.build, read: false)
     .pipe $.clean()
     .pipe $.notify(message: "Clean task complete")
 
@@ -67,8 +68,8 @@ gulp.task "default", ["clean"], ->
   return
 
 gulp.task "watch", ["connect"], ->
-  gulp.watch "source/styles/**/*.styl", ["stylus"]
-  gulp.watch "source/scripts/**/*.coffee", ["coffee"]
-  gulp.watch "source/images/**/*", ["images"]
-  gulp.watch "source/*.jade", ["jade"]
+  gulp.watch dir.source + dir.styles + "**/*.styl", ["stylus"]
+  gulp.watch dir.source + dir.scripts + "**/*.coffee", ["coffee"]
+  gulp.watch dir.source + dir.images + "**/*", ["images"]
+  gulp.watch dir.source + "*.jade", ["jade"]
   return

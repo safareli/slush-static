@@ -1,0 +1,14 @@
+{
+  "dir":{
+    "source": "./<%= source_dir %>/",
+    "build": "./<%= build_dir %>/",
+    "scripts": "<%= scripts_dir %>/",
+    "styles": "<%= styles_dir %>/",
+    "images": "<%= images_dir %>/"
+  },
+  "server":{
+    "livereload": "<%= livereload_port %>",
+    "port": "<%= server_port %>",
+    "hostname": "<%= server_hostname %>"
+  }
+}
