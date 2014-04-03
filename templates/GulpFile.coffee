@@ -3,10 +3,10 @@ LOCALS = require("./locals.json")
 gulp = require("gulp")
 $ = require("gulp-load-plugins")(lazy: false) #plugins
 
-# if port is in use and  Error: listen EADDRINUSE is thrown run
+# if port is in use and Error: listen EADDRINUSE is thrown run
 # $ netstat -a -t -p
-# get pid of proccess using portand kill like so
-# kill -9 PID
+# get pid of proccess using port and kill it like so
+# $kill -9 PID
 
 gulp.task "connect", $.connect.server(
   host: server.hostname
@@ -29,10 +29,10 @@ gulp.task "coffee", ->
     .pipe $.coffeelint.reporter()
     .pipe $.coffee(bare: true).on("error", $.util.log)
     .pipe $.concat("main.js")
-    .pipe gulp.dest(dir.dist + dir.scripts)
+    .pipe gulp.dest(dir.build + dir.scripts)
     .pipe $.rename(suffix: ".min")
     .pipe $.uglify()
-    .pipe gulp.dest(dir.dist + dir.scripts)
+    .pipe gulp.dest(dir.build + dir.scripts)
     .pipe $.connect.reload()
     .pipe $.notify(message: "Scripts task complete")
 
@@ -42,20 +42,20 @@ gulp.task "stylus", ->
       use: ["nib"]
       import: ["nib"]
     )
-    .pipe gulp.dest(dir.dist + dir.styles)
+    .pipe gulp.dest(dir.build + dir.styles)
     .pipe $.connect.reload()
     .pipe $.notify(message: "Styles task complete")
 
 gulp.task "images", ->
   gulp.src(dir.source + dir.images + "**/*")
-    .pipe $.newer(dir.dist + dir.images)
+    .pipe $.newer(dir.build + dir.images)
     .pipe $.imagemin(
       optimizationLevel: 3
       progressive: true
       interlaced: true
     )
     .pipe $.connect.reload()
-    .pipe gulp.dest(dir.dist + dir.images)
+    .pipe gulp.dest(dir.build + dir.images)
     .pipe $.notify(message: "Images task complete")
 
 gulp.task "clean", ->
