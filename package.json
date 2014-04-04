@@ -1,7 +1,7 @@
 {
   "name": "slush-static",
   "description": "generate static web page project with cofeescript+lint+uglify, stylus+nib ,imagemin, jade and server+livereload",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/Safareli/slush-static",
   "author": {
     "name": "Irakli Safareli",
@@ -25,7 +25,7 @@
     "test": "echo \"Not have tests\""
   },
   "dependencies": {
-    "gulp": "~3.5.6",
+    "gulp": "~3.6.0",
     "gulp-template": "~0.1.1",
     "gulp-install": "~0.1.1",
     "gulp-conflict": "~0.1.1",
