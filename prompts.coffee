@@ -1,5 +1,5 @@
 __homeDir = process.env.HOME or process.env.HOMEPATH or process.env.USERPROFILE
-__workingDirName = process.cwd().split("/").pop()
+__workingDirName = process.cwd().split("/").pop().split("\\").pop()
 __userName = __homeDir and __homeDir.split("/").pop() or "root"
 getUser = (->
   user = undefined
