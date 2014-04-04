@@ -80,5 +80,5 @@ module.exports = [{
   }, {
     type: 'confirm', 
     name: '__continue', 
-    message: 'Continue?'}
+    message: 'Continue?'
 }]
