@@ -10,7 +10,7 @@ inquirer = require("inquirer")
 
 gulp.task "default", (done) ->
   inquirer.prompt require("./prompts.coffee"), (answers) ->
-    return done()  unless answers.appName
+    return done()  unless answers.__continue
     answers.appNameSlug = slugify(answers.appName)
     d = new Date()
     answers.year = d.getFullYear()

@@ -77,4 +77,8 @@ module.exports = [{
     name: "server_hostname"
     message: "Specify server hostname?"
     default: "localhost"
+  }, {
+    type: 'confirm', 
+    name: '__continue', 
+    message: 'Continue?'}
 }]
