@@ -11,13 +11,14 @@ $ = require("gulp-load-plugins")(lazy: true) #plugins
 # or if you know proccess {{name}}
 # $ killall {{name}} 
 
-gulp.task "connect", $.connect.server(
-  host: server.hostname
-  root: [dir.build]
-  port: server.port
-  livereload:
-    port: server.livereload
-)
+gulp.task "connect", ->
+  $.connect.server(
+    host: server.hostname
+    root: [dir.build]
+    port: server.port
+    livereload:
+      port: server.livereload
+  )
 
 gulp.task "jade", ->
   gulp.src(dir.source + "/*.jade")
