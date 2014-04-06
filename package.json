@@ -30,13 +30,16 @@
     "gulp-install": "~0.1.1",
     "gulp-conflict": "~0.1.1",
     "gulp-rename": "~1.2.0",
-    "gulp-load-plugins": "~0.4.0",
+    "gulp-load-plugins": "^0.4.0",
     "underscore.string": "~2.3.3",
     "iniparser": "~1.0.5",
     "inquirer": "~0.4.1",
     "coffee-script": "~1.7.1"
   },
   "keywords": [
-    "slushgenerator", "slush", "generator", "scaffold"
+    "slushgenerator",
+    "static",
+    "generator",
+    "scaffold"
   ]
 }
