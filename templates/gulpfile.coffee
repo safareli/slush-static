@@ -1,4 +1,5 @@
 LOCALS = require("./locals.json")
+isWatching = false
 {dir, server} = require("./config.json")
 gulp = require("gulp")
 $ = require("gulp-load-plugins")(lazy: false) #plugins
@@ -20,7 +21,7 @@ gulp.task "jade", ->
   gulp.src(dir.source + "/*.jade")
     .pipe $.jade(locals: LOCALS)
     .pipe gulp.dest(dir.build)
-    .pipe $.connect.reload()
+    .pipe (if isWatching then $.connect.reload() else $.util.noop())
     .pipe $.notify(message: "Jade task complete")
 
 gulp.task "coffee", ->
@@ -33,7 +34,7 @@ gulp.task "coffee", ->
     .pipe $.rename(suffix: ".min")
     .pipe $.uglify()
     .pipe gulp.dest(dir.build + dir.scripts)
-    .pipe $.connect.reload()
+    .pipe (if isWatching then $.connect.reload() else $.util.noop())
     .pipe $.notify(message: "Scripts task complete")
 
 gulp.task "stylus", ->
@@ -43,7 +44,7 @@ gulp.task "stylus", ->
       import: ["nib"]
     )
     .pipe gulp.dest(dir.build + dir.styles)
-    .pipe $.connect.reload()
+    .pipe (if isWatching then $.connect.reload() else $.util.noop())
     .pipe $.notify(message: "Styles task complete")
 
 gulp.task "images", ->
@@ -54,7 +55,7 @@ gulp.task "images", ->
       progressive: true
       interlaced: true
     )
-    .pipe $.connect.reload()
+    .pipe (if isWatching then $.connect.reload() else $.util.noop())
     .pipe gulp.dest(dir.build + dir.images)
     .pipe $.notify(message: "Images task complete")
 
@@ -68,6 +69,7 @@ gulp.task "default", ["clean"], ->
   return
 
 gulp.task "watch", ["connect"], ->
+  isWatching = true;
   gulp.watch dir.source + dir.styles + "**/*.styl", ["stylus"]
   gulp.watch dir.source + dir.scripts + "**/*.coffee", ["coffee"]
   gulp.watch dir.source + dir.images + "**/*", ["images"]
