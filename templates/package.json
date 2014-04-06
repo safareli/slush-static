@@ -37,7 +37,6 @@
     "gulp-clean": "~0.2.4",
     "gulp-rename": "~1.2.0",
     "gulp-concat": "~2.2.0",
-    "gulp-notify": "~1.2.5",
     "gulp-coffeelint": "~0.3.2",
     "gulp-load-plugins": "^0.5.0",
     "gulp-connect": "^2.0.4",
