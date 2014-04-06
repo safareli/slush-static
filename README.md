@@ -1,4 +1,5 @@
-# slush-static [![Build Status](https://secure.travis-ci.org/Safareli/slush-static.png?branch=master)](https://travis-ci.org/Safareli/slush-static) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-static.png)](http://badges.enytc.com/for/npm/slush-static)
+# slush-static [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
+
 
 > generate static web page project using:
  - CoffeeScript + lint + uglify
@@ -81,3 +82,13 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
+ 
+
+[npm-url]: https://npmjs.org/package/slush-static
+[npm-image]: https://badge.fury.io/js/slush-static.png
+
+[travis-url]: http://travis-ci.org/Safareli/slush-static
+[travis-image]: https://secure.travis-ci.org/Safareli/slush-static.png?branch=master
+
+[depstat-url]: https://gemnasium.com/Safareli/slush-static
+[depstat-image]: http://img.shields.io/gemnasium/Safareli/slush-static.svg
