@@ -3,6 +3,7 @@ isWatching = false
 {dir, server} = require("./config.json")
 gulp = require("gulp")
 $ = require("gulp-load-plugins")(lazy: true) #plugins
+nib = require("nib")
 
 # if port is in use and Error: listen EADDRINUSE is thrown run
 # $ netstat -a -t -p
@@ -41,7 +42,7 @@ gulp.task "coffee", ->
 gulp.task "stylus", ->
   gulp.src(dir.source + dir.styles + "*.styl")
     .pipe $.stylus(
-      use: ["nib"]
+      use: [nib()]
       import: ["nib"]
     )
     .pipe gulp.dest(dir.build + dir.styles)
