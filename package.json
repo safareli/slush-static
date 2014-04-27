@@ -1,7 +1,7 @@
 {
   "name": "slush-static",
   "description": "generate static web page project with cofeescript+lint+uglify, stylus+nib ,imagemin, jade and server+livereload",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/Safareli/slush-static",
   "author": {
     "name": "Irakli Safareli",
